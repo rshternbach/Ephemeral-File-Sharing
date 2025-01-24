@@ -97,14 +97,17 @@ func RetrieveFileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if time.Now().After(fileMetadata.ExpirationTime) {
+		handleError(w, "File has expired", fmt.Errorf("file has expired"), http.StatusNotFound)
+		return
+	}
+
 	file, err := openFile(fileID)
 	if err != nil {
 		handleError(w, "Failed to open file", err, http.StatusInternalServerError)
 		return
 	}
 	defer file.Close()
-
-	setFileHeaders(w, fileMetadata)
 
 	if _, err := io.Copy(w, file); err != nil {
 		handleError(w, "Failed to send file", err, http.StatusInternalServerError)
@@ -175,8 +178,4 @@ func getFileMetadata(fileID string) (models.FileMetadata, error) {
 func openFile(fileID string) (*os.File, error) {
 	filePath := filepath.Join(config.UploadDir, fileID)
 	return os.Open(filePath)
-}
-
-func setFileHeaders(w http.ResponseWriter, fileMetadata models.FileMetadata) {
-
 }
