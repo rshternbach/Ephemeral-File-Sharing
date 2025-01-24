@@ -1,0 +1,89 @@
+.file-upload-card {
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .file-upload-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .file-upload-card h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .file-input,
+  .retention-input {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 15px auto;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .upload-button,
+  .copy-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-button:hover,
+  .copy-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal {
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .modal a {
+    color: #007bff;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  
+  .modal a:hover {
+    text-decoration: underline;
+  }
+  
+  .shareable-url {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    max-width: 100%;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
